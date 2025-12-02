@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 
-test('test', async ({ page }) => {
+test('Verify that user is able to raise the support-tciket ', async ({ page }) => {
   await page.goto('https://newdbthree.thetopschool.com/');
   await page.getByRole('button', { name: 'Log in as Admin' }).click();
   await page.getByRole('textbox', { name: 'Username' }).fill('dbthree05');
@@ -18,6 +18,6 @@ test('test', async ({ page }) => {
   await page.getByRole('textbox', { name: 'Tell us a bit more about the' }).click();
   await page.getByRole('textbox', { name: 'Tell us a bit more about the' }).fill('dsdsdsdsd');
   await page.getByText('Add Attachments').click();
-  await page.setInputFiles('input[type="file"]', 'C:/Users/prasa/Downloads/istockphoto-598786236-612x612.jpg');
+  await page.setInputFiles('input[type="file"]', 'tests/uploads/istockphoto-598786236-612x612.jpg');
   await page.getByRole('button', { name: 'Send Request' }).click();
 });
