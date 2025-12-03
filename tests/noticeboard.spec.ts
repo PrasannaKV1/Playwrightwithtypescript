@@ -13,7 +13,18 @@ test('Verify admin is able to create the notice board  ', async ({ page }) => {
   await page.getByRole('link', { name: 'School' }).click();
   await page.getByRole('button', { name: 'Create notice' }).click();
   await page.getByTestId('content-input').click();
-  await page.getByTestId('content-input').fill('quick');
+  function randomLetters(length: number) {
+  const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+  let result = '';
+  for (let i = 0; i < length; i++) {
+    result += chars.charAt(Math.floor(Math.random() * chars.length));
+  }
+  return result;
+}
+
+console.log(randomLetters(10)); // Example: AbXyKpQaRt
+
+  await page.getByTestId('content-input').fill(randomLetters(10));
   await page.getByTestId('select-button').click();
   await page.getByRole('option', { name: 'Important' }).click();
   await page.getByRole('textbox', { name: 'Description*' }).click();
